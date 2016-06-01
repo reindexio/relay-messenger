@@ -1,0 +1,97 @@
+[
+  {
+    name: 'User',
+    kind: 'OBJECT',
+    interfaces: ['Node'],
+    fields: [
+      {
+        name: 'id',
+        type: 'ID',
+        nonNull: true,
+        unique: true,
+      },
+      {
+        name: 'name',
+        type: 'String',
+      },
+      {
+        name: 'image',
+        type: 'String',
+      },
+      {
+        name: 'messages',
+        type: 'Connection',
+        ofType: 'Message',
+        reverseName: 'sender',
+      },
+      {
+        name: 'channels',
+        type: 'Connection',
+        ofType: 'Channel',
+        reverseName: 'members',
+      },
+    ],
+  },
+  {
+    name: 'Channel',
+    kind: 'OBJECT',
+    interfaces: ['Node'],
+    fields: [
+      {
+        name: 'id',
+        type: 'ID',
+        nonNull: true,
+        unique: true,
+      },
+      {
+        name: 'name',
+        type: 'String',
+        nonNull: true,
+        unique: true,
+      },
+      {
+        name: 'members',
+        type: 'Connection',
+        ofType: 'User',
+        reverseName: 'channels',
+      },
+      {
+        name: 'messages',
+        type: 'Connection',
+        ofType: 'Message',
+        reverseName: 'channel',
+      },
+    ],
+  },
+  {
+    name: 'Message',
+    kind: 'OBJECT',
+    interfaces: ['Node'],
+    fields: [
+      {
+        name: 'id',
+        type: 'ID',
+        nonNull: true,
+        unique: true,
+      },
+      {
+        name: 'text',
+        type: 'String',
+      },
+      {
+        name: 'sender',
+        type: 'User',
+        reverseName: 'messages',
+      },
+      {
+        name: 'date',
+        type: 'DateTime',
+      },
+      {
+        name: 'channel',
+        type: 'Channel',
+        reverseName: 'messages',
+      },
+    ],
+  },
+]

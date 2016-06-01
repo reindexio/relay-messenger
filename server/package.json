@@ -1,0 +1,15 @@
+{
+  "name": "relay-messenger-server",
+  "version": "0.1.0",
+  "description": "The server-side component of the Relay Messenger example app",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/reindexio/reindex-examples/tree/master/relay-messenger/server",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "pusher": "^1.3.0"
+  }
+}
