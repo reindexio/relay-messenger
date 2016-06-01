@@ -20,7 +20,8 @@
     "react/jsx-no-bind": 0,
     "react/jsx-closing-bracket-location": [2, "after-props"],
     "no-use-before-define": 0,
-    "new-cap": 0
+    "new-cap": 0,
+    "default-case": 0
   },
   "plugins": [
     "react"
