@@ -12,6 +12,7 @@
     "react-relay": "^0.9.0"
   },
   "devDependencies": {
+    "babel-eslint": "^6.0.4",
     "babel-relay-plugin": "^0.9.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
