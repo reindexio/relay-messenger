@@ -4,14 +4,17 @@ import {
   Text,
   Image,
   ListView,
+  ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import Relay from 'react-relay';
+
+import mockData from '../mockData';
 
 class ChannelList extends Component {
+  static title = () => 'Chats';
   static propTypes = {
-    user: PropTypes.object.isRequired,
+    onPushRoute: PropTypes.func,
   };
 
   constructor(props) {
@@ -21,12 +24,12 @@ class ChannelList extends Component {
       new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     this.state = {
-      dataSource: ds.cloneWithRows(this.props.user.channels),
+      dataSource: ds.cloneWithRows(mockData.channels),
     };
   }
 
   renderRow = (node, index) => (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => this.props.onPushRoute({ key: 'Chat' })}>
       <View style={styles.listItem}>
         <Image style={styles.image} source={{ uri: node.avatar }} />
         <Text key={index} style={styles.text}>
@@ -38,10 +41,12 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <ListView
-        contentContainerStyle={styles.container}
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow} />
+      <ScrollView>
+        <ListView
+          contentContainerStyle={styles.container}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow} />
+      </ScrollView>
     );
   }
 }
@@ -50,6 +55,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
+    marginTop: 64,
   },
   image: {
     width: 40,
@@ -69,22 +75,3 @@ const styles = StyleSheet.create({
 });
 
 export default ChannelList;
-/*
-export default Relay.createContainer(ChannelList, {
-  fragments: {
-    user: () => Relay.QL`
-      fragment on User {
-        channels(first: 10) {
-          edges {
-            node {
-              id
-              name
-              members { count }
-            }
-          }
-        }
-      }
-    `,
-  },
-});
-*/

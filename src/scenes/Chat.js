@@ -1,48 +1,25 @@
-import React, { Component, PropTypes } from 'react';
-import { View } from 'react-native';
-import Relay from 'react-relay';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import mockData from '../mockData';
 import Messages from '../components/Messages';
 
 class Chat extends Component {
+  static title = () => 'Chat';
+
   render() {
     return (
-      <View>
-        <Messages user={this.props.user} channel={this.props.channel} />
+      <View style={styles.view}>
+        <Messages user={mockData.user} channel={mockData.channels[0]} />
       </View>
     );
   }
 }
 
-export default Chat;
-/* export default Relay.createContainer(Chat, {
-  fragments: {
-    user: () => Relay.QL`
-      fragment on User {
-        id
-        name
-        image
-      }
-    `,
-    channel: () => Relay.QL`
-      fragment on Channel {
-        name
-        messages {
-          edges {
-            node {
-              date
-              id
-              sender {
-                id
-                name
-                image
-              }
-              text
-            }
-          }
-        }
-      }
-    `,
+const styles = StyleSheet.create({
+  view: {
+    marginTop: 64,
   },
-}); */
+});
+
+export default Chat;

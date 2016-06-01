@@ -7,9 +7,10 @@ import React, {
 } from 'react';
 
 const {
-  CardStack: NavigationCardStack,
   StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
+
+import Navigator from './Navigator';
 
 export default class App extends Component {
 
@@ -17,19 +18,17 @@ export default class App extends Component {
     // This defines the initial navigation state.
     navigationState: {
       index: 0, // starts with first route focused.
-      routes: [{ key: 'Welcome' }], // starts with only one route.
+      routes: [{ key: 'ChannelList' }], // starts with only one route.
     },
   };
 
   // This handles the navigation state changes. You're free and responsible
   // to define the API that changes that navigation state. In this exmaple,
   // we'd simply use a `function(type: string)` to update the navigation state.
-  onNavigationChange: void = (type: string) => {
+  onNavigationChange = (type, route) => {
     let { navigationState } = this.state;
     switch (type) {
       case 'push': {
-        // push a new route.
-        const route = { key: Date.now() };
         navigationState = NavigationStateUtils.push(navigationState, route);
         break;
       }
@@ -50,7 +49,7 @@ export default class App extends Component {
   // User your own navigator (see Step 2).
   render() {
     return (
-      <YourNavigator
+      <Navigator
         navigationState={this.state.navigationState}
         onNavigationChange={this.onNavigationChange} />
     );
