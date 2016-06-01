@@ -7,9 +7,10 @@ import React, {
 } from 'react';
 
 const {
-  CardStack: NavigationCardStack,
   StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
+
+import Navigator from './Navigator';
 
 export default class App extends Component {
 
@@ -17,7 +18,7 @@ export default class App extends Component {
     // This defines the initial navigation state.
     navigationState: {
       index: 0, // starts with first route focused.
-      routes: [{ key: 'Welcome' }], // starts with only one route.
+      routes: [{ key: 'Channels' }], // starts with only one route.
     },
   };
 
@@ -50,7 +51,7 @@ export default class App extends Component {
   // User your own navigator (see Step 2).
   render() {
     return (
-      <YourNavigator
+      <Navigator
         navigationState={this.state.navigationState}
         onNavigationChange={this.onNavigationChange} />
     );

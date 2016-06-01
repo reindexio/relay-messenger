@@ -6,8 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
-    "react": "15.0.2",
-    "react-native": "^0.26.2",
+    "react": "^15.1.0",
+    "react-native": "facebook/react-native#6603cef",
     "react-native-gifted-messenger": "^0.1.4",
     "react-relay": "^0.9.0"
   },
