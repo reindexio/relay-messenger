@@ -4,8 +4,12 @@ const user = {
   image: 'http://placekitten.com/150/150',
 };
 
-const channel = {
+const channels = [{
   name: 'Hello Hackathon!',
+  avatar: 'http://placekitten.com/150/150',
+  members: {
+    count: 5,
+  },
   messages: {
     edges: [{
       node: {
@@ -27,6 +31,50 @@ const channel = {
       },
     }],
   },
-};
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another cat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another cat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}, {
+  name: 'Another chat',
+  avatar: 'http://placekitten.com/150/150',
+  members: {},
+}];
 
-export default { user, channel };
+export default { user, channels };
