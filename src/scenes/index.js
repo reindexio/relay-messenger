@@ -1,7 +1,7 @@
 import Channel from './Channel';
 import Channels from './Channels';
 
-export {
+export default {
   Channel,
   Channels,
 };
