@@ -2,8 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import {
   Dimensions,
   View,
+  Platform,
 } from 'react-native';
 import GiftedMessenger from 'react-native-gifted-messenger';
+
+const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
 
 class Messages extends Component {
   static propTypes = {
@@ -79,7 +83,9 @@ class Messages extends Component {
           messages={this.state.messages}
           handleSend={this.handleSend}
           onErrorButtonPress={() => {}}
-          maxHeight={Dimensions.get('window').height - 20}
+          maxHeight={
+            Dimensions.get('window').height - (APPBAR_HEIGHT + STATUSBAR_HEIGHT)
+          }
           loadEarlierMessagesButton={false}
           onLoadEarlierMessages={() => {}}
           senderName={user.name}

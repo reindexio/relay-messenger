@@ -18,7 +18,7 @@ class Chat extends Component {
 
 const styles = StyleSheet.create({
   view: {
-    marginTop: 64,
+    marginTop: 40,
   },
 });
 
