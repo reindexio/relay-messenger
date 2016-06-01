@@ -18,7 +18,7 @@ export default class App extends Component {
     // This defines the initial navigation state.
     navigationState: {
       index: 0, // starts with first route focused.
-      routes: [{ key: 'Channels' }], // starts with only one route.
+      routes: [{ key: 'ChannelList' }], // starts with only one route.
     },
   };
 

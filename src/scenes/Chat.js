@@ -10,7 +10,7 @@ class Chat extends Component {
   render() {
     return (
       <View style={styles.view}>
-        <Messages user={mockData.user} channel={mockData.channel} />
+        <Messages user={mockData.user} channel={mockData.channels[0]} />
       </View>
     );
   }

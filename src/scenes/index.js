@@ -1,7 +1,7 @@
-import Channels from './Channels';
+import ChannelList from './ChannelList';
 import Chat from './Chat';
 
 export default {
-  Channels,
+  ChannelList,
   Chat,
 };
