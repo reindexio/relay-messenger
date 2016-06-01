@@ -11,19 +11,44 @@ import {
   View
 } from 'react-native';
 
+import Channel from './src/components/Channel';
+
+const user = {
+  id: 10,
+  name: 'Hello',
+  image: 'http://placekitten.com/150/150',
+};
+
+const channel = {
+  name: 'Hello Hackathon!',
+  messages: {
+    edges: [{
+      node: {
+        date: new Date(2000, 1, 1),
+        id: 0,
+        text: 'Hello',
+        sender: user,
+      },
+    }, {
+      node: {
+        date: new Date(2001, 1, 1),
+        id: 1,
+        text: 'World',
+        sender: {
+          id: 11,
+          name: 'World',
+          image: 'http://placekitten.com/150/150',
+        },
+      },
+    }],
+  },
+};
+
 class Project extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <Channel channel={channel} user={user} />
       </View>
     );
   }

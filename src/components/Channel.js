@@ -59,8 +59,8 @@ class Channel extends Component {
   }
 }
 
-
-export default Relay.createContainer(Channel, {
+export default Channel;
+/* export default Relay.createContainer(Channel, {
   fragments: {
     user: () => Relay.QL`
       fragment on User {
@@ -89,4 +89,4 @@ export default Relay.createContainer(Channel, {
       }
     `,
   },
-});
+}); */
