@@ -1,7 +1,6 @@
-import React, {
-  Component,
+import React, { Component, PropTypes } from 'react';
+import {
   Dimensions,
-  PropTypes,
   View,
 } from 'react-native';
 import Relay from 'react-relay';

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Project.app"
-               BlueprintName = "Project"
-               ReferencedContainer = "container:Project.xcodeproj">
+               BuildableName = "RelayMessenger.app"
+               BlueprintName = "RelayMessenger"
+               ReferencedContainer = "container:RelayMessenger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ProjectTests.xctest"
-               BlueprintName = "ProjectTests"
-               ReferencedContainer = "container:Project.xcodeproj">
+               BuildableName = "RelayMessengerTests.xctest"
+               BlueprintName = "RelayMessengerTests"
+               ReferencedContainer = "container:RelayMessenger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ProjectTests.xctest"
-               BlueprintName = "ProjectTests"
-               ReferencedContainer = "container:Project.xcodeproj">
+               BuildableName = "RelayMessengerTests.xctest"
+               BlueprintName = "RelayMessengerTests"
+               ReferencedContainer = "container:RelayMessenger.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Project.app"
-            BlueprintName = "Project"
-            ReferencedContainer = "container:Project.xcodeproj">
+            BuildableName = "RelayMessenger.app"
+            BlueprintName = "RelayMessenger"
+            ReferencedContainer = "container:RelayMessenger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Project.app"
-            BlueprintName = "Project"
-            ReferencedContainer = "container:Project.xcodeproj">
+            BuildableName = "RelayMessenger.app"
+            BlueprintName = "RelayMessenger"
+            ReferencedContainer = "container:RelayMessenger.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Project.app"
-            BlueprintName = "Project"
-            ReferencedContainer = "container:Project.xcodeproj">
+            BuildableName = "RelayMessenger.app"
+            BlueprintName = "RelayMessenger"
+            ReferencedContainer = "container:RelayMessenger.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
