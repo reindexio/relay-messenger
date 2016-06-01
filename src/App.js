@@ -25,12 +25,10 @@ export default class App extends Component {
   // This handles the navigation state changes. You're free and responsible
   // to define the API that changes that navigation state. In this exmaple,
   // we'd simply use a `function(type: string)` to update the navigation state.
-  onNavigationChange: void = (type: string) => {
+  onNavigationChange = (type, route) => {
     let { navigationState } = this.state;
     switch (type) {
       case 'push': {
-        // push a new route.
-        const route = { key: Date.now() };
         navigationState = NavigationStateUtils.push(navigationState, route);
         break;
       }
