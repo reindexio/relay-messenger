@@ -4,6 +4,7 @@ import {
   Text,
   Image,
   ListView,
+  ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -40,10 +41,12 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <ListView
-        contentContainerStyle={styles.container}
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow} />
+      <ScrollView>
+        <ListView
+          contentContainerStyle={styles.container}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow} />
+      </ScrollView>
     );
   }
 }
