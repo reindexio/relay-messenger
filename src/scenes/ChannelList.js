@@ -4,10 +4,13 @@ import {
   Text,
   Image,
   ListView,
+  NavigationExperimental,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+
+const { Header } = NavigationExperimental;
 
 import mockData from '../mockData';
 
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'stretch',
-    marginTop: 64,
+    marginTop: Header.HEIGHT,
   },
   image: {
     width: 40,

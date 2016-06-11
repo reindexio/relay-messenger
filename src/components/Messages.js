@@ -67,7 +67,6 @@ class Messages extends Component {
       <View
         style={{
           flex: 1,
-          marginTop: 20,
         }}>
         <GiftedMessenger
           styles={{

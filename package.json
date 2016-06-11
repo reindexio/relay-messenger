@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "react": "^15.1.0",
-    "react-native": "facebook/react-native#6603cef",
+    "react-native": "facebook/react-native#97c483e",
     "react-native-gifted-messenger": "^0.1.4",
     "react-relay": "^0.9.0"
   },
