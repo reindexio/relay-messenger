@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, NavigationExperimental, View } from 'react-native';
 
 import mockData from '../mockData';
 import Messages from '../components/Messages';
+
+const { Header } = NavigationExperimental;
 
 class Chat extends Component {
   static title = () => 'Chat';
@@ -18,7 +20,7 @@ class Chat extends Component {
 
 const styles = StyleSheet.create({
   view: {
-    marginTop: 40,
+    marginTop: Header.HEIGHT,
   },
 });
 
