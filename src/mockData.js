@@ -1,12 +1,15 @@
+const image = 'https://placekitten.com/150/150';
+const avatar = 'https://placekitten.com/80/80';
+
 const user = {
   id: 10,
   name: 'Hello',
-  image: 'http://placekitten.com/150/150',
+  image,
 };
 
 const channels = [{
   name: 'Hello Hackathon!',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {
     count: 5,
   },
@@ -26,54 +29,54 @@ const channels = [{
         sender: {
           id: 11,
           name: 'World',
-          image: 'http://placekitten.com/150/150',
+          image,
         },
       },
     }],
   },
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another cat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another cat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }, {
   name: 'Another chat',
-  avatar: 'http://placekitten.com/150/150',
+  avatar,
   members: {},
 }];
 
