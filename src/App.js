@@ -1,57 +1,66 @@
-import {
-  NavigationExperimental,
-} from 'react-native';
+import React, { Component } from 'react';
+import Reindex from 'reindex-js';
+import Relay from 'react-relay';
+import { NavigationExperimental } from 'react-native';
 
-import React, {
-  Component,
-} from 'react';
+import ChatListRoute from './routes/ChatListRoute';
+import Navigator from './Navigator';
+import config from '../config';
+import { NavigatorContextType } from './PropTypes';
 
 const {
   StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
 
-import Navigator from './Navigator';
+const reindex = new Reindex(config.reindexUrl);
+reindex.setToken(config.reindexAnonymousToken);
+Relay.injectNetworkLayer(reindex.getRelayNetworkLayer());
 
 export default class App extends Component {
-
-  state = {
-    // This defines the initial navigation state.
-    navigationState: {
-      index: 0, // starts with first route focused.
-      routes: [{ key: 'ChannelList' }], // starts with only one route.
-    },
+  static childContextTypes = {
+    navigator: NavigatorContextType,
   };
 
-  // This handles the navigation state changes. You're free and responsible
-  // to define the API that changes that navigation state. In this exmaple,
-  // we'd simply use a `function(type: string)` to update the navigation state.
-  onNavigationChange = (type, route) => {
+  constructor() {
+    super();
+    this.state = {
+      navigationState: {
+        index: 0,
+        routes: [
+          new ChatListRoute(),
+        ],
+      },
+    };
+    this.popRoute = this.popRoute.bind(this);
+    this.pushRoute = this.pushRoute.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      navigator: {
+        pop: this.popRoute,
+        push: this.pushRoute,
+      },
+    };
+  }
+
+  popRoute() {
     let { navigationState } = this.state;
-    switch (type) {
-      case 'push': {
-        navigationState = NavigationStateUtils.push(navigationState, route);
-        break;
-      }
-
-      case 'pop': {
-        navigationState = NavigationStateUtils.pop(navigationState);
-        break;
-      }
-    }
-
-    // NavigationStateUtils gives you back the same `navigationState` if nothing
-    // has changed. You could use that to avoid redundant re-rendering.
+    navigationState = NavigationStateUtils.pop(navigationState);
     if (this.state.navigationState !== navigationState) {
       this.setState({ navigationState });
     }
   }
 
-  // User your own navigator (see Step 2).
+  pushRoute(route) {
+    let { navigationState } = this.state;
+    navigationState = NavigationStateUtils.push(navigationState, route);
+    if (this.state.navigationState !== navigationState) {
+      this.setState({ navigationState });
+    }
+  }
+
   render() {
-    return (
-      <Navigator
-        navigationState={this.state.navigationState}
-        onNavigationChange={this.onNavigationChange} />
-    );
+    return <Navigator navigationState={this.state.navigationState} />;
   }
 }

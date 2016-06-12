@@ -86,11 +86,27 @@
       {
         name: 'date',
         type: 'DateTime',
+        orderable: true,
+        filterable: true
       },
       {
         name: 'channel',
         type: 'Channel',
         reverseName: 'messages',
+      },
+    ],
+    permissions: [
+      {
+        grantee: 'USER',
+        userPath: ['sender'],
+        create: true,
+        read: true,
+        update: true,
+      },
+      {
+        grantee: 'USER',
+        userPath: ['channel', 'members'],
+        read: true,
       },
     ],
   },

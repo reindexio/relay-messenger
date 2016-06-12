@@ -2,17 +2,23 @@
   "name": "RelayMessenger",
   "version": "0.0.1",
   "private": true,
+  "react-relay-schema": ".relay-schema.json",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache"
+    "update-schema": "reindex schema-relay .relay-schema.json",
+    "start": "npm run update-schema; node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
     "react": "^15.1.0",
     "react-native": "facebook/react-native#97c483e",
     "react-native-gifted-messenger": "^0.1.4",
-    "react-relay": "^0.9.0"
+    "react-relay": "^0.9.0",
+    "reindex-js": "^0.4.0",
+    "uuid": "^2.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
+    "babel-plugin-react-relay": "^0.8.1",
+    "babel-preset-react-native": "^1.9.0",
     "babel-relay-plugin": "^0.9.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",

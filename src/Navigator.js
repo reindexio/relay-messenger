@@ -1,53 +1,58 @@
 import React, { PropTypes } from 'react';
 import { NavigationExperimental } from 'react-native';
+import { Store, Renderer } from 'react-relay';
+
+import mapRouteToComponent from './mapRouteToComponent';
+import { NavigatorContextType } from './PropTypes';
+
 const { CardStack, Header } = NavigationExperimental;
-
-import scenes from './scenes';
-
-const getScene = (key) => {
-  const scene = scenes[key];
-  if (!scene) {
-    throw new Error(`Scene '${key} does not exist.`);
-  }
-  return scene;
-};
 
 export default class Navigator extends React.Component {
   static propTypes = {
     navigationState: PropTypes.object.isRequired,
-    onNavigationChange: PropTypes.func.isRequired,
   };
-  onPushRoute = (route) => {
-    this.props.onNavigationChange('push', route);
+  static contextTypes = {
+    navigator: NavigatorContextType,
   };
-  onPopRoute = () => {
-    this.props.onNavigationChange('pop');
-  };
-  renderTitle = (sceneProps) => {
-    const scene = getScene(sceneProps.scene.route.key);
+
+  constructor() {
+    super();
+    this.navigateBack = this.navigateBack.bind(this);
+    this.renderTitle = this.renderTitle.bind(this);
+    this.renderOverlay = this.renderOverlay.bind(this);
+    this.renderScene = this.renderScene.bind(this);
+  }
+
+  navigateBack() {
+    this.context.navigator.pop();
+  }
+
+  renderTitle({ scene }) {
+    return <Header.Title>{scene.route.getTitle()}</Header.Title>;
+  }
+
+  renderOverlay(sceneProps) {
     return (
-      <Header.Title>{scene.title()}</Header.Title>
+      <Header
+        {...sceneProps}
+        onNavigateBack={this.navigateBack}
+        renderTitleComponent={this.renderTitle} />
     );
-  };
-  renderOverlay = (sceneProps) => (
-    <Header
-      {...sceneProps}
-      onNavigateBack={this.onPopRoute}
-      renderTitleComponent={this.renderTitle} />
-  );
-  renderScene = (sceneProps) => {
-    const Scene = getScene(sceneProps.scene.route.key);
+  }
+
+  renderScene({ scene }) {
     return (
-      <Scene
-        route={sceneProps.scene.route}
-        onPushRoute={this.onPushRoute}
-        onPopRoute={this.onPopRoute} />
+      <Renderer
+        Container={mapRouteToComponent(scene.route)}
+        queryConfig={scene.route}
+        environment={Store} />
     );
-  };
+  }
+
   render() {
     return (
       <CardStack
-        onNavigateBack={this.onPopRoute}
+        onNavigateBack={this.navigateBack}
         navigationState={this.props.navigationState}
         renderScene={this.renderScene}
         renderOverlay={this.renderOverlay} />
