@@ -45,7 +45,6 @@ class ChatScene extends Component {
   }
 
   render() {
-    const { user } = this.props.viewer;
     const { edges } = this.props.channel.messages;
     return (
       <GiftedMessenger
@@ -59,8 +58,7 @@ class ChatScene extends Component {
         messages={edges.map(this.mapEdgeToMessage)}
         handleSend={this.handleSend}
         maxHeight={Dimensions.get('window').height - Header.HEIGHT}
-        senderName={user.name}
-        senderImage={{ uri: user.image }}
+        autoFocus={false}
         parseText />
     );
   }
