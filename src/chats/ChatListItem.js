@@ -75,12 +75,12 @@ const styles = StyleSheet.create({
   },
   listItem: {
     padding: 12,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#a0a0a0',
     flexDirection: 'row',
   },
   text: {
-    paddingLeft: 12,
+    marginLeft: 12,
     alignSelf: 'center',
   },
 });

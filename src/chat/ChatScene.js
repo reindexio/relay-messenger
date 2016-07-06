@@ -4,6 +4,8 @@ import GiftedMessenger from 'react-native-gifted-messenger';
 import {
   Dimensions,
   NavigationExperimental,
+  Platform,
+  StatusBar,
 } from 'react-native';
 
 import SendMessageMutation from '../mutations/SendMessageMutation';
@@ -57,7 +59,10 @@ class ChatScene extends Component {
         }}
         messages={edges.map(this.mapEdgeToMessage)}
         handleSend={this.handleSend}
-        maxHeight={Dimensions.get('window').height - Header.HEIGHT}
+        maxHeight={
+          Dimensions.get('window').height - Header.HEIGHT -
+            (Platform.OS === 'android' ? StatusBar.currentHeight : 0)
+        }
         autoFocus={false}
         parseText />
     );
