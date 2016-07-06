@@ -4,12 +4,12 @@
   "private": true,
   "react-relay-schema": ".relay-schema.json",
   "scripts": {
-    "update-schema": "reindex schema-relay .relay-schema.json",
+    "update-schema": "reindex schema-relay --url https://nuclear-meitnerium-861.myreindex.com .relay-schema.json",
     "start": "npm run update-schema; node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
     "react": "^15.1.0",
-    "react-native": "facebook/react-native#97c483e",
+    "react-native": "^0.29.0",
     "react-native-gifted-messenger": "^0.1.4",
     "react-relay": "^0.9.0",
     "reindex-js": "^0.4.0",
